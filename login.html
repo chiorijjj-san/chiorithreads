@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chiori-style Login</title>
+     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: #fff5f5;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #8B0000;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            padding: 0 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo .flower-logo {
+            width: 35px;
+            height: 35px;
+            background: #D4AF37;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .nav-logo .flower-logo::before,
+        .nav-logo .flower-logo::after {
+            content: '';
+            position: absolute;
+            background: #8B0000;
+            width: 10px;
+            height: 20px;
+            border-radius: 5px;
+        }
+
+        .nav-logo .flower-logo::before {
+            transform: rotate(45deg) translate(8px, -3px);
+        }
+
+        .nav-logo .flower-logo::after {
+            transform: rotate(-45deg) translate(-8px, -3px);
+        }
+
+        .nav-links {
+            display: flex;
+            margin-left: 40px;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 5px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #D4AF37;
+        }
+
+        .user-profile {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+        }
+
+        .user-avatar {
+            width: 35px;
+            height: 35px;
+            background: #D4AF37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        /* Login Container */
+        .login-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            width: 400px;
+            margin: 0 auto;
+        }
+
+        /* Rest of the previous styles remain the same */
+        .input-group {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .input-group label {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+            pointer-events: none;
+            transition: 0.3s;
+            background: white;
+            padding: 0 5px;
+        }
+
+        .input-group input:focus,
+        .input-group input:valid {
+            border-color: #8B0000;
+            outline: none;
+        }
+
+        .input-group input:focus ~ label,
+        .input-group input:valid ~ label {
+            top: 0;
+            font-size: 14px;
+            color: #8B0000;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #8B0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #6B0000;
+        }
+
+        .links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .links a {
+            color: #D4AF37;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-logo">
+            <div class="flower-logo"></div>
+            <span style="color: white; font-weight: 500;">CHIORI Workspace</span>
+        </div>
+        <div class="nav-links">
+            <a href="#">Your work</a>
+            <a href="#">Projects</a>
+            <a href="#">Filters</a>
+            <a href="#">Dashboards</a>
+        </div>
+        <div class="user-profile">
+            <div class="user-avatar">C</div>
+        </div>
+    </nav>
+
+    <div class="login-container">
+        <div class="flower-logo" style="margin-bottom: 30px;"></div>
+        <form>
+            <div class="input-group">
+                <input type="email" required>
+                <label>Email address</label>
+            </div>
+            <div class="input-group">
+                <input type="password" required>
+                <label>Password</label>
+            </div>
+            <button type="submit">Log in</button>
+            <div class="links">
+                <a href="#">Forgot password?</a>
+                <br><br>
+                <span>Don't have an account? </span>
+                <a href="#">Sign up</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
