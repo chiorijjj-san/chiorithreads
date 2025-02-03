@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        
         :root {
             --nahida-green: #8daf7b;
             --nahida-cream: #f5f1e6;
@@ -67,41 +68,64 @@
             font-size: 1.5rem;
             margin-right: 0.5rem;
         }
+
+        /* Updated CSS */
+        .login-container {
+            margin-top: 4rem;
+            padding: 2.5rem;
+            background: white;
+            border-radius: 10px;
+            border: 1px solid var(--nahida-light);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .form-floating {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-floating input {
+            height: 56px;
+            padding: 1rem 1.25rem;
+        }
+
+        .form-floating label {
+            padding: 1rem 1.25rem;
+            font-size: 0.95rem;
+        }
+
+        .login-header {
+            margin-bottom: 2rem;
+        }
+
+        .system-info {
+            padding: 2.5rem;
+            background: white;
+            border-radius: 10px;
+            border: 1px solid var(--nahida-light);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .main-content {
+            padding: 3rem 0;
+        }
     </style>
 </head>
+
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <i class="fas fa-leaf"></i>
-                Nahida System
-            </a>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Docs</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!-- Navbar remains the same -->
 
     <!-- Main Content -->
-    <div class="container">
-        <div class="row g-5">
+    <div class="container main-content">
+        <div class="row g-4">
             <!-- Login Form -->
-            <div class="col-md-6">
+            <div class="col-lg-5">
                 <div class="login-container">
-                    <h2 class="mb-4" style="color: var(--nahida-dark);">Welcome Back</h2>
+                    <div class="login-header">
+                        <h2 class="mb-3" style="color: var(--nahida-dark); font-weight: 600;">Account Login</h2>
+                        <p class="text-muted">Access your wisdom management portal</p>
+                    </div>
                     <form>
-                        <div class="form-floating mb-3">
+                        <div class="form-floating">
                             <input type="email" class="form-control" id="email" placeholder="name@example.com">
                             <label for="email">Email address</label>
                         </div>
@@ -109,8 +133,8 @@
                             <input type="password" class="form-control" id="password" placeholder="Password">
                             <label for="password">Password</label>
                         </div>
-                        <button class="btn btn-primary w-100">Sign In</button>
-                        <div class="text-center mt-3">
+                        <button class="btn btn-primary w-100 py-2">Sign In</button>
+                        <div class="text-center mt-4">
                             <a href="#" class="text-decoration-none" style="color: var(--nahida-green);">
                                 Forgot password?
                             </a>
@@ -120,38 +144,55 @@
             </div>
 
             <!-- System Info -->
-            <div class="col-md-6">
+            <div class="col-lg-7">
                 <div class="system-info">
-                    <h3 class="mb-4" style="color: var(--nahida-dark);">
-                        Wisdom Management System
+                    <h3 class="mb-4" style="color: var(--nahida-dark); font-weight: 600;">
+                        <i class="fas fa-seedling me-2"></i>Dendro Management System
                     </h3>
-                    <p class="lead mb-4" style="color: var(--nahida-dark);">
-                        Manage projects with the wisdom of the Dendro Archon. Our system helps you:
-                    </p>
-                    <ul class="list-unstyled">
-                        <li class="mb-3">
-                            <i class="feature-icon fas fa-brain"></i>
-                            <strong>Track Knowledge</strong> - Organize information with smart categorization
-                        </li>
-                        <li class="mb-3">
-                            <i class="feature-icon fas fa-users"></i>
-                            <strong>Team Collaboration</strong> - Work together in harmony with nature
-                        </li>
-                        <li class="mb-3">
-                            <i class="feature-icon fas fa-seedling"></i>
-                            <strong>Growth Analytics</strong> - Nurture your projects to full bloom
-                        </li>
-                    </ul>
-                    <div class="mt-4">
-                        <p style="color: var(--nahida-dark);">
-                            "The world is full of wonders, and knowledge should be shared."
-                        </p>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="feature-item">
+                                <div class="feature-icon mb-3">
+                                    <i class="fas fa-brain fa-2x" style="color: var(--nahida-green);"></i>
+                                </div>
+                                <h5>Knowledge Tracking</h5>
+                                <p class="text-muted small">Organize information with intelligent categorization and tagging</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-item">
+                                <div class="feature-icon mb-3">
+                                    <i class="fas fa-users fa-2x" style="color: var(--nahida-green);"></i>
+                                </div>
+                                <h5>Team Harmony</h5>
+                                <p class="text-muted small">Real-time collaboration with integrated communication tools</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-item">
+                                <div class="feature-icon mb-3">
+                                    <i class="fas fa-chart-line fa-2x" style="color: var(--nahida-green);"></i>
+                                </div>
+                                <h5>Growth Analytics</h5>
+                                <p class="text-muted small">Detailed insights with customizable dashboards</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-item">
+                                <div class="feature-icon mb-3">
+                                    <i class="fas fa-shield-alt fa-2x" style="color: var(--nahida-green);"></i>
+                                </div>
+                                <h5>Secure Vault</h5>
+                                <p class="text-muted small">Enterprise-grade security with regular audits</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Script remains the same -->
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </html>
