@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        :root {
+            --primary: #3a66cc;    /* Deep Hydro Blue */
+            --secondary: #8fc1ff;  /* Light Hydro Blue */
+            --background: linear-gradient(to bottom, #f4f5f7, #ebecf0); /* Dark Navy */
+            --text: #a3b8e0;       /* Muted Aqua Blue */
+        }
+
+
+        body {
+            background: var(--background);
+            color: var(--text);
+        }
+
+        /* Dashboard Layout */
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            background: white;
+            padding: 20px;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 240px;
+            height: 100vh;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .flower-logo {
+            width: 40px;
+            height: 40px;
+            background: var(--secondary);
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .flower-logo::before,
+        .flower-logo::after {
+            content: '';
+            position: absolute;
+            background: var(--primary);
+            width: 12px;
+            height: 24px;
+            border-radius: 6px;
+        }
+
+        .flower-logo::before {
+            transform: rotate(45deg) translate(10px, -3px);
+        }
+
+        .flower-logo::after {
+            transform: rotate(-45deg) translate(-10px, -3px);
+        }
+
+        .nav-section {
+            margin-bottom: 30px;
+        }
+
+        .nav-title {
+            color: var(--primary);
+            font-size: 14px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            padding-left: 10px;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover {
+            background: #ffe5e5;
+            color: var(--primary);
+        }
+
+        /* Main Content Area */
+        .main-content {
+            grid-column: 2;
+            padding: 40px;
+        }
+
+        /* Header */
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .header-title {
+            color: var(--primary);
+            font-size: 24px;
+        }
+
+        /* Stats Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .stat-value {
+            font-size: 32px;
+            color: var(--primary);
+            margin: 10px 0;
+        }
+
+        /* User Table */
+        .user-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .user-table th {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .user-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .user-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #6B0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <div class="flower-logo"></div>
+                <h2>Chiori Admin</h2>
+            </div>
+
+            <nav class="nav-section">
+                <h3 class="nav-title">Management</h3>
+                <a href="#" class="nav-link">🏠 Dashboard</a>
+                <a href="#" class="nav-link">👥 Users</a>
+                <a href="#" class="nav-link">🔑 Permissions</a>
+                <a href="#" class="nav-link">⚙️ Settings</a>
+            </nav>
+
+            <nav class="nav-section">
+                <h3 class="nav-title">Analytics</h3>
+                <a href="#" class="nav-link">📈 Reports</a>
+                <a href="#" class="nav-link">📊 Statistics</a>
+                <a href="#" class="nav-link">🔔 Activity</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="dashboard-header">
+                <h1 class="header-title">Admin Dashboard</h1>
+                <button class="btn btn-primary">+ New User</button>
+            </header>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Active Users</h3>
+                    <div class="stat-value">1,422</div>
+                    <span>↑ 12% from last month</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Storage Used</h3>
+                    <div class="stat-value">64%</div>
+                    <span>128GB of 200GB</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Active Sessions</h3>
+                    <div class="stat-value">83</div>
+                    <span>↓ 5% from yesterday</span>
+                </div>
+            </div>
+
+            <!-- User Table -->
+            <table class="user-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Chiori Kamisato</td>
+                        <td>chiori@example.com</td>
+                        <td>Administrator</td>
+                        <td>
+                            <button class="btn btn-primary">Edit</button>
+                            <button class="btn btn-primary">Logs</button>
+                        </td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
+        </main>
+    </div>
+</body>
+</html>
