@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nahida's Wisdom Planner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #8db596;
+            --secondary-color: #d5e8d4;
+            --accent-color: #ffdea0;
+            --dark-green: #5a7d5a;
+            --background: #f8fff8;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--background);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            background-image: linear-gradient(to bottom right, #f8fff8 0%, #e8f5e9 100%);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('leaf-pattern.png'); /* Add Nahida-themed leaf pattern */
+            opacity: 0.05;
+            z-index: -1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: var(--dark-green);
+            font-size: 2.5em;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .header h1::before,
+        .header h1::after {
+            content: '✦';
+            color: var(--primary-color);
+            font-size: 0.8em;
+        }
+
+        .task-input {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid var(--secondary-color);
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 8px rgba(141, 181, 150, 0.3);
+        }
+
+        button {
+            padding: 15px 25px;
+            background: var(--primary-color);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: var(--dark-green);
+            transform: translateY(-2px);
+        }
+
+        .task-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .task-item {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .task-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .task-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        .task-text {
+            flex: 1;
+            font-size: 16px;
+        }
+
+        .category-tag {
+            background: var(--accent-color);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            color: #5a4b30;
+        }
+
+        .wisdom-quote {
+            text-align: center;
+            margin-top: 30px;
+            color: var(--dark-green);
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        /* Nahida-themed decorative elements */
+        .decorative-vines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100%;
+            background-image: url('vines.png'); /* Add decorative vine pattern */
+            opacity: 0.1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="decorative-vines"></div>
+    <div class="container">
+        <div class="header">
+            <h1><img src="nahida-icon.png" alt="Nahida Icon" width="40"> Wisdom Planner</h1>
+        </div>
+        
+        <div class="task-input">
+            <input type="text" placeholder="Add a new task...">
+            <button>Add Task</button>
+        </div>
+
+        <ul class="task-list">
+            <li class="task-item">
+                <input type="checkbox">
+                <span class="task-text">Complete Dendro Archon research</span>
+                <span class="category-tag">Study</span>
+            </li>
+            <li class="task-item">
+                <input type="checkbox">
+                <span class="task-text">Water Sumeru plants</span>
+                <span class="category-tag">Gardening</span>
+            </li>
+        </ul>
+
+        <div class="wisdom-quote">
+            "Knowledge should be shared, just like the light of wisdom."
+        </div>
+    </div>
+</body>
+</html>
